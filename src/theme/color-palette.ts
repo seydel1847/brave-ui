@@ -23,7 +23,7 @@ const scaleGreen = {
   greenLighten15: '#3FE491',
   greenLighten10: '#29E085',
   greenLighten5: '#1ED278',
-  greenBase: '#1ED278',
+  greenBase: '#1BBA6A',
   greenDarken5: '#18A55E',
   greenDarken10: '#148F52',
   greenDarken15: '#117845'
