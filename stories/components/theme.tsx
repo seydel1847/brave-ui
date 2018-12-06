@@ -11,20 +11,20 @@ import chaptersAddon from 'react-storybook-addon-chapters'
 
 // Components
 import styled from '../../src/theme'
-import paletteColors from '../../src/theme/palette'
+import paletteColors from '../../src/theme/color-palette'
 import themeBraveDefault from '../../src/theme/brave-default'
 import '../assets/fonts/muli.css'
 
 // wrappers
 const PaletteItemContainer = styled.div`
-  width: ${(p: any) => p.individual ? '25%' : '10%'};
+  min-width: 160px;
   min-height: 150px;
-  margin: 5px;
-  border: 4px dotted #888;
+  margin: 8px;
   background: white;
-  padding: 2px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 ` as any
 
 const PaletteColor = styled.div`
@@ -34,10 +34,11 @@ const PaletteColor = styled.div`
 `
 
 const PaletteItemName = styled.div`
-  font: 12px muli;
+  font: 12px Muli;
   font-weight: 500;
   color: #222;
   text-align: center;
+  margin-top: 4px;
 `
 
 const PaletteItem = ({ color, name, individual }: any) => (
@@ -61,7 +62,7 @@ for (const name in themeBraveDefault.color) {
 
 const Palette = styled.div`
   display: flex;
-  flex-direction: ${(p: any) => p.individual ? 'column' : 'row'};
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
 ` as any
