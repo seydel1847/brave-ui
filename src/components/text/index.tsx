@@ -1,6 +1,6 @@
 import * as React from 'react'
 import IText from './textInterface'
-import { StyledBody, StyledHeading, StyledFootnote } from './style'
+import { StyledText, StyledHeading, StyledFootnote } from './style'
 
 export const Footnote = (p: IText) => {
   return (
@@ -8,10 +8,7 @@ export const Footnote = (p: IText) => {
       tag={p.tag}
       color={p.color}
       lineHeight={p.lineHeight}
-      fontWeight={p.fontWeight}
-      padding={p.padding}
-      margin={p.margin}
-      isItalic={p.isItalic}
+      strongLevel={p.strongLevel}
     >
     {p.children}
     </StyledFootnote>
@@ -19,19 +16,16 @@ export const Footnote = (p: IText) => {
 }
 
 /* Body Text. It's a nice body. */
-export const BodyCopy = (p: IText) => {
+export const Text = (p: IText) => {
   return (
-    <StyledBody
+    <StyledText
       tag={p.tag}
       color={p.color}
       lineHeight={p.lineHeight}
-      fontWeight={p.fontWeight}
-      padding={p.padding}
-      margin={p.margin}
-      isItalic={p.isItalic}
+      strongLevel={p.strongLevel}
     >
     {p.children}
-    </StyledBody>
+    </StyledText>
   )
 }
 
@@ -42,10 +36,7 @@ export const Heading = (p: IText) => {
       fontSize={p.fontSize}
       color={p.color}
       lineHeight={p.lineHeight}
-      fontWeight={p.fontWeight}
-      padding={p.padding}
-      margin={p.margin}
-      isItalic={p.isItalic}
+      strongLevel={p.strongLevel}
     >
     {p.children}
     </StyledHeading>

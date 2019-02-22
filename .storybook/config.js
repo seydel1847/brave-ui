@@ -1,13 +1,17 @@
-import './styles.css'
-import { withBackgrounds } from '@storybook/addon-backgrounds'
-import { configure, addDecorator } from '@storybook/react'
-import { withOptions } from '@storybook/addon-options'
+import './style/normalize.css'
+import './style/github_style.css'
 import { initLocale } from '../src/helpers'
 import locales from '../stories/assets/locale'
+import { configure, addDecorator } from '@storybook/react'
+import { withBackgrounds } from '@storybook/addon-backgrounds'
+import { withOptions } from '@storybook/addon-options'
 import { withThemesProvider } from 'storybook-addon-styled-component-theme'
+
+// Theme files
 import DarkTheme from '../src/components/style/theme/dark'
 import DefaultTheme from '../src/components/style/theme/default'
 
+// Sets decorator squares in side panel
 const themes = [DefaultTheme, DarkTheme]
 
 addDecorator(

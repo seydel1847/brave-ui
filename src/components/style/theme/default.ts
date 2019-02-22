@@ -119,14 +119,10 @@ const theme: ITheme = {
     scale: ['12px', '14px', '16px', '20px', '24px', '32px', '40px', '48px', '60px', '72px']
   },
   fontWeight: {
-    bold: '600',
-    regular: '400',
-    light: '200'
+    strongLevel: ['200', '400', '600']
   },
   lineHeight: {
-    large: '1.75',
-    default: '1.5',
-    zero: '0'
+    scale: ['0', '1.6']
   }
 }
 

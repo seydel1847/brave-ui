@@ -28,17 +28,14 @@ const getColor = (p: ThemedStyledProps<IText>) => {
 const getLineHeight = (p: ThemedStyledProps<IText>) => {
   let lineHeight
   switch (p.lineHeight) {
-    case 'default':
-      lineHeight = p.theme.lineHeight.default
+    case 0:
+      lineHeight = p.theme.lineHeight.scale[0]
       break
-    case 'large':
-      lineHeight = p.theme.lineHeight.large
-      break
-    case 'zero':
-      lineHeight = p.theme.lineHeight.zero
+    case 1:
+      lineHeight = p.theme.lineHeight.scale[1]
       break
     default:
-      lineHeight = p.theme.lineHeight.default
+      lineHeight = p.theme.lineHeight.scale[1]
   }
   return css`
     --line-height: ${lineHeight};
@@ -47,18 +44,18 @@ const getLineHeight = (p: ThemedStyledProps<IText>) => {
 
 const getFontWeight = (p: ThemedStyledProps<IText>) => {
   let fontWeight
-  switch (p.fontWeight) {
-    case 'regular':
-      fontWeight = p.theme.fontWeight.regular
+  switch (p.strongLevel) {
+    case 0:
+      fontWeight = p.theme.fontWeight.strongLevel[0]
       break
-    case 'bold':
-      fontWeight = p.theme.fontWeight.bold
+    case 1:
+      fontWeight = p.theme.fontWeight.strongLevel[1]
       break
-    case 'light':
-      fontWeight = p.theme.fontWeight.light
+    case 2:
+      fontWeight = p.theme.fontWeight.strongLevel[2]
       break
     default:
-      fontWeight = p.theme.fontWeight.regular
+      fontWeight = p.theme.fontWeight.strongLevel[1]
   }
   return css`
     --font-weight: ${fontWeight};
@@ -106,31 +103,18 @@ const getFontSize = (p: ThemedStyledProps<IText>) => {
   `
 }
 
-const getMargin = (p: IText) => {
-  return css`
-    --spacing-margin: ${p.margin};
-    `
-}
-
-const getPadding = (p: IText) => {
-  return css`
-    --spacing-padding: ${p.padding};
-    `
-}
-
 // Shared base text styling & format base. Uses paragraph as a basis but also overrides browser tag styles. Also imports initial theme props
+
 const BaseTextStyle = styled<IText, 'div'>('div')`
-  ${getPadding}
-  ${getMargin}
   ${getColor}
   ${getLineHeight}
   ${getFontWeight}
   font-weight: var(--font-weight);
   color: var(--text-color);
   line-height: var(--line-height);
-  padding: var(--spacing-padding);
-  margin:var(--spacing-margin);
-  font-style: ${props => props.isItalic ? 'italic' : null}
+  margin: ${p => p.lineHeight === 0 ? '0' : '0 0 16px'};
+  padding: 0;
+  word-wrap: break-word;
 `
 
 // Pass in HTML tag and configurable props to text components
@@ -140,9 +124,7 @@ export const BaseText = ({ tag, children, ...props }: IText) => {
 }
 
 BaseText.defaultProps = {
-  tag: 'p',
-  margin: '0',
-  padding: '0'
+  tag: 'p'
 }
 
 export const StyledFootnote = styled(BaseText)`
@@ -150,7 +132,7 @@ export const StyledFootnote = styled(BaseText)`
   font-family: ${p => p.theme.fontFamily.body}, ${p => p.theme.fontFamily.system};
 `
 
-export const StyledBody = styled(BaseText)`
+export const StyledText = styled(BaseText)`
   font-size: ${p => p.theme.fontSize.scale[1]};
   font-family: ${p => p.theme.fontFamily.body}, ${p => p.theme.fontFamily.system};
 `
@@ -161,10 +143,11 @@ export const StyledHeading = styled(BaseText)`
   ${getFontSize}
   font-size: var(--font-size);
   font-family: ${p => p.theme.fontFamily.heading}, ${p => p.theme.fontFamily.system};
+  word-wrap: normal;
 `
 
 StyledHeading.defaultProps = {
   tag: 'h1',
-  fontWeight: 'bold',
+  strongLevel: 2,
   fontSize: 4
 }

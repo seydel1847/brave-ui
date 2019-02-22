@@ -117,14 +117,10 @@ export default interface IThemeProps {
     scale: string[]
   }
   fontWeight: {
-    bold: string
-    regular: string
-    light: string
+    strongLevel: string[]
   }
   lineHeight: {
-    large: string
-    default: string
-    zero: string
+    scale: string[]
   }
 }
 
