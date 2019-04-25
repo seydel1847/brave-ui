@@ -46,7 +46,7 @@ import {
 } from '../../../components/icons'
 
 export type Social = { type: SocialType, url: string }
-export type SocialType = 'twitter' | 'youtube' | 'twitch'
+export type SocialType = 'twitter' | 'youtube' | 'twitch' | 'vimeo'
 export type Donation = { tokens: string, converted: string, selected?: boolean }
 
 export interface Props {
@@ -154,6 +154,8 @@ export default class SiteBanner extends React.PureComponent<Props, State> {
         return `${identifier} ${getLocale('on')} Twitter`
       case 'twitch':
         return `${identifier} ${getLocale('on')} Twitch`
+      case 'vimeo':
+        return `${identifier} ${getLocale('on')} Vimeo`
       default:
         return identifier
     }

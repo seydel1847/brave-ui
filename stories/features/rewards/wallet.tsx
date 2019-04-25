@@ -114,7 +114,7 @@ storiesOf('Feature Components/Rewards/Wallet/Desktop', module)
       <div style={{ width: '373px', background: '#f9fbfc' }}>
         <WalletPanel
           id={'wallet-panel'}
-          platform={select<any>('Provider', { youtube: 'YouTube', twitter: 'Twitter', twitch: 'Twitch' }, 'youtube')}
+          platform={select<any>('Provider', { youtube: 'YouTube', twitter: 'Twitter', twitch: 'Twitch', vimeo: 'Vimeo' }, 'youtube')}
           publisherImg={bartBaker}
           publisherName={'Bart Baker'}
           monthlyAmount={'10.0'}

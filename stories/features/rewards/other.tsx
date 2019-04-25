@@ -180,7 +180,7 @@ storiesOf('Feature Components/Rewards/Other/Desktop', module)
           type={select<any>('Type', { big: 'big', small: 'small' }, 'big')}
           title={'Bart Baker'}
           verified={boolean('Verified', false)}
-          provider={select<any>('Provider', { youtube: 'YouTube', twitter: 'Twitter', twitch: 'Twitch' }, 'youtube')}
+          provider={select<any>('Provider', { youtube: 'YouTube', twitter: 'Twitter', twitch: 'Twitch', vimeo: 'Vimeo' }, 'youtube')}
           src={bart}
         />
       </div>
@@ -232,7 +232,7 @@ storiesOf('Feature Components/Rewards/Other/Desktop', module)
         id={'toggle-tips'}
         onToggleTips={onToggle}
         tipsEnabled={boolean('Selected', store.state.tipsEnabled)}
-        provider={select<any>('Provider', { youtube: 'YouTube', twitter: 'Twitter', twitch: 'Twitch' }, 'youtube')}
+        provider={select<any>('Provider', { youtube: 'YouTube', twitter: 'Twitter', twitch: 'Twitch', vimeo: 'Vimeo' }, 'youtube')}
       />
     )
   }))

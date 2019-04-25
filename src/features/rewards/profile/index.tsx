@@ -22,7 +22,7 @@ import {
 import { getLocale } from '../../../helpers'
 import { VerifiedIcon, UnVerifiedIcon, LoaderIcon } from '../../../components/icons'
 
-export type Provider = 'twitter' | 'youtube' | 'twitch'
+export type Provider = 'twitter' | 'youtube' | 'twitch' | 'vimeo'
 
 export interface Props {
   id?: string
@@ -55,6 +55,8 @@ export default class Profile extends React.PureComponent<Props, {}> {
         return `${getLocale('on')} Twitter`
       case 'twitch':
         return `${getLocale('on')} Twitch`
+      case 'vimeo':
+        return `${getLocale('on')} Vimeo`
     }
   }
 
