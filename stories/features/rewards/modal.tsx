@@ -11,7 +11,8 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import { DetailRow as ContributeRow } from '../../../src/features/rewards/tableContribute'
 import { DetailRow as DonationDetailRow } from '../../../src/features/rewards/tableDonation'
 import { DetailRow as TransactionsRow } from '../../../src/features/rewards/tableTransactions'
-import { ModalContribute, ModalBackupRestore, ModalActivity, ModalDonation } from '../../../src/features/rewards'
+import { DetailRow as AdsHistoryRow } from '../../../src/features/rewards/tableAdsHistory'
+import { ModalContribute, ModalBackupRestore, ModalActivity, ModalDonation, ModalShowAdsHistory } from '../../../src/features/rewards'
 import ModalAddFunds, { Address } from '../../../src/features/rewards/modalAddFunds'
 
 const bart = require('../../assets/img/bartBaker.jpeg')
@@ -20,6 +21,7 @@ const wiki = require('../../assets/img/wiki.jpg')
 const buzz = require('../../assets/img/buzz.jpg')
 const guardian = require('../../assets/img/guardian.jpg')
 const eich = require('../../assets/img/eich.jpg')
+const tesla = require('../../assets/img/tesla.jpg')
 
 const doNothing = () => {
   console.log('nothing')
@@ -438,6 +440,188 @@ storiesOf('Feature Components/Rewards/Modal', module)
       <ModalDonation
         rows={rows}
         onClose={doNothing}
+      />
+    )
+  })
+  .add('Show Ads History',() => {
+    const adsPerHour = 2
+    const adId: number = 0
+    const rowId: number = 0
+    const rows: AdsHistoryRow[] = [
+      {
+        id: rowId,
+        date: '1/30',
+        adDetailRows: [
+          {
+            id: adId,
+            adContent: {
+              brand: 'Pepsi',
+              brandLogo: '',
+              brandUrl: 'https://www.pepsi.com',
+              brandDisplayUrl: 'pepsi.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Viewed',
+              likeAction: 1,
+              onThumbUpPress: doNothing,
+              onThumbDownPress: doNothing,
+              onMenuFlag: doNothing,
+              onMenuSave: doNothing,
+              savedAd: false,
+              flaggedAd: false
+            },
+            categoryContent: {
+              category: 'Entertainment',
+              optAction: 0,
+              onOptInAction: doNothing,
+              onOptOutAction: doNothing
+            }
+          },
+          {
+            id: adId + 1,
+            adContent: {
+              brand: 'TESLA',
+              brandLogo: '',
+              brandUrl: 'https://www.tesla.com',
+              brandDisplayUrl: 'tesla.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Clicked',
+              likeAction: 2,
+              onThumbUpPress: doNothing,
+              onThumbDownPress: doNothing,
+              onMenuFlag: doNothing,
+              onMenuSave: doNothing,
+              savedAd: true,
+              flaggedAd: false,
+              logoUrl: tesla
+            },
+            categoryContent: {
+              category: 'Auto',
+              optAction: 0,
+              onOptInAction: doNothing,
+              onOptOutAction: doNothing
+            }
+          },
+          {
+            id: adId + 2,
+            adContent: {
+              brand: 'Disney',
+              brandLogo: '',
+              brandUrl: 'https://www.disney.com',
+              brandDisplayUrl: 'disney.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Clicked',
+              likeAction: 0,
+              onThumbUpPress: doNothing,
+              onThumbDownPress: doNothing,
+              onMenuFlag: doNothing,
+              onMenuSave: doNothing,
+              savedAd: false,
+              flaggedAd: false
+            },
+            categoryContent: {
+              category: 'Travel',
+              optAction: 0,
+              onOptInAction: doNothing,
+              onOptOutAction: doNothing
+            }
+          }
+        ]
+      },
+      {
+        id: rowId + 1,
+        date: '1/29',
+        adDetailRows: [
+          {
+            id: adId + 3,
+            adContent: {
+              brand: 'Puma',
+              brandLogo: '',
+              brandUrl: 'https://www.puma.com',
+              brandDisplayUrl: 'puma.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Landed',
+              likeAction: 1,
+              onThumbUpPress: doNothing,
+              onThumbDownPress: doNothing,
+              onMenuFlag: doNothing,
+              onMenuSave: doNothing,
+              savedAd: false,
+              flaggedAd: false
+            },
+            categoryContent: {
+              category: 'Sports',
+              optAction: 1,
+              onOptInAction: doNothing,
+              onOptOutAction: doNothing
+            }
+          },
+          {
+            id: adId + 4,
+            adContent: {
+              brand: 'Expedia.com',
+              brandLogo: '',
+              brandUrl: 'https://www.expedia.com',
+              brandDisplayUrl: 'expedia.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Viewed',
+              likeAction: 0,
+              onThumbUpPress: doNothing,
+              onThumbDownPress: doNothing,
+              onMenuFlag: doNothing,
+              onMenuSave: doNothing,
+              savedAd: true,
+              flaggedAd: true
+            },
+            categoryContent: {
+              category: 'Travel',
+              optAction: 2,
+              onOptInAction: doNothing,
+              onOptOutAction: doNothing
+            }
+          },
+          {
+            id: adId + 5,
+            adContent: {
+              brand: 'H&M',
+              brandLogo: '',
+              brandUrl: 'https://www.hm.com',
+              brandDisplayUrl: 'hm.com',
+              brandInfo: 'Animation & VFX Degree - Degree in Animation |',
+              adAction: 'Closed',
+              likeAction: 0,
+              onThumbUpPress: doNothing,
+              onThumbDownPress: doNothing,
+              onMenuFlag: doNothing,
+              onMenuSave: doNothing,
+              savedAd: true,
+              flaggedAd: false
+            },
+            categoryContent: {
+              category: 'Fashion',
+              optAction: 1,
+              onOptInAction: doNothing,
+              onOptOutAction: doNothing
+            }
+          }
+        ]
+      }
+    ]
+    return (
+      <ModalShowAdsHistory
+        onClose={doNothing}
+        rows={rows}
+        adsPerHour={adsPerHour}
+        hasSavedEntries={true}
+      />
+    )
+  })
+  .add('Show Empty Ads History',() => {
+    const adsPerHour = 0
+    return (
+      <ModalShowAdsHistory
+        onClose={doNothing}
+        rows={undefined}
+        adsPerHour={adsPerHour}
       />
     )
   })
